@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - 'stable'
+
+before_install:
+  - npm install
+
+script:
+  - karma start
+
+
+cache:
+  directories:
+    - "node_modules"
