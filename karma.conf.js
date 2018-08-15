@@ -39,7 +39,7 @@ module.exports = function (config) {
     concurrency: Infinity,
 
 
-    reporters: [ 'progress', 'coverage' ],
+    reporters: [ 'progress', 'coverage'],
 
     preprocessors: {
       'react-client/src/components/**/*.jsx': ['webpack', 'coverage'],
