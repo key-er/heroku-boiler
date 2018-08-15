@@ -207,6 +207,8 @@
 
 
 var webpackConfig = require('./webpack.config.js')
+webpackConfig.entry = null;
+
 
 module.exports = function (config) {
   config.set({
@@ -215,22 +217,26 @@ module.exports = function (config) {
     frameworks: [ 'mocha' , 'chai'], //use the mocha test framework
     files: [
       // 'tests/clientSpecs/List.js' //just load this file
+      'react-client/src/components/**/*.jsx',
       { pattern: 'tests/clientSpecs/**/*.js', watched: true }
     ],
+
+    reporters: [ 'progress', 'coverage' ],
+
     preprocessors: {
+      'react-client/src/components/**/': 'webpack', //preprocess with webpack and our sourcemap loader
       'tests/clientSpecs/**/*.js': [ 'webpack'], //preprocess with webpack and our sourcemap loader
 
     },
-    reporters: [ 'dots' ], //report results in this format
+     //report results in this format
     webpack: webpackConfig,
 
-    reporters: ['mocha', 'progress', 'coverage'],
+    reporters: ['progress', 'coverage'],
 
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'
     },
-
 
     webpackServer: {
       noInfo: false //please don't spam the console when running in karma!
