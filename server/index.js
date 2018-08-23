@@ -57,7 +57,7 @@ function signup() {
 
 }
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3200;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
