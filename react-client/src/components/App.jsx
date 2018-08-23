@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './List.jsx';
 
@@ -32,3 +31,6 @@ class App extends React.Component {
     </div>)
   }
 }
+
+
+export default App;
